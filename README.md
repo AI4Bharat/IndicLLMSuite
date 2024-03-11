@@ -3,7 +3,6 @@
 This repository containing the artifacts and resources for curating Pre-training and Fine-tuning datasets for Indic Languages
 
 <p align="center">
-  <a href=""><img src="https://img.shields.io/badge/ACL%20-2023-blue"></a>
   <a href="https://github.com/ai4bharat/IndicLLMSuite/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green">
   </a>
