@@ -36,7 +36,7 @@ We release the below Artifacts:
 
 ## Sangraha
 Sangraha is the largest high-quality, cleaned Indic language pretraining data containing 251B tokens summed up over 22 languages, extracted from curated sources, existing multilingual corpora, and large-scale translations. It has three broad components:
-- **Sangraha Verified**: Contains scraped data from "human-verified" Websites, OCR-extracted data from high-quality Indic language PDFs, transcribed data from various Indic language videos, podcasts, movies, courses, etc. For scraping the data from the Web, we use the open-source framework [Webcorpus](webcorpus_link). For OCR, we collect PDFs from various sources with Internet Archive being the most prominent one. We release the code to download all the Indic Language PDFs from Internet Archive [here](sangraha_download_link)
+- **Sangraha Verified**: Contains scraped data from "human-verified" Websites, OCR-extracted data from high-quality Indic language PDFs, transcribed data from various Indic language videos, podcasts, movies, courses, etc. For scraping the data from the Web, we use the open-source framework [Webcorpus](https://github.com/AI4Bharat/webcorpus/tree/46af15a794fe101b0d9444f4a03dcd903be19fb7). For OCR, we collect PDFs from various sources with Internet Archive being the most prominent one. We release the code to download all the Indic Language PDFs from Internet Archive [here](sangraha_download_link)
 - **Sangraha Unverified**: High-quality Indic language data extracted from existing multilingual corpora. We employ perplexity filtering using n-gram language models trained on Sangraha Verified by extending the pipeline proposed by [CCNet](https://github.com/facebookresearch/cc_net/blob/main/cc_net/perplexity.py).
 - **Sangraha Synthetic**: Wikimedia English translated to 14 Indic languages and further "romanized" from 14 languages by transliteration to English. We use the [Setu-translate](#setu-translate) and [Setu-transliterate](#setu-transliterate) pipelines for translation and transliteration, respectively.
 
@@ -89,7 +89,7 @@ The list of languages in Sangraha:
 </table>
 
 ## IndicAlign
-IndicAlign is the largest multilingual Instruction Fine-tuning dataset for Indic Languages, comprising a diverse collection of around 74.7 million prompt-response pairs. This data has been collected through four methods: aggregating existing Instruction Fine-tuning (IFT) datasets, translating high-quality English datasets to 14 Indic languages, generating synthetic data using context-grounded conversations from India-centric Wikipedia articles, and establishing a crowd-sourcing platform Anudesh for prompt collection. Indic Align comprises two distinct splits: [IndicAlign-Instruct](#indicalign-insrtuct) and [IndicAlign-Toxic](#indicalign-toxic).
+IndicAlign is the largest multilingual Instruction Fine-tuning dataset for Indic Languages, comprising a diverse collection of around 74.7 million prompt-response pairs. This data has been collected through four methods: aggregating existing Instruction Fine-tuning (IFT) datasets, translating high-quality English datasets to 14 Indic languages, generating synthetic data using context-grounded conversations from India-centric Wikipedia articles, and establishing a crowd-sourcing platform Anudesh for prompt collection. Indic Align comprises two distinct splits: [IndicAlign-Instruct](#indicalign-instruct) and [IndicAlign-Toxic](#indicalign-toxic).
 
 IndicAlign can be downloaded from [Huggingface 🤗](https://huggingface.co/datasets/ai4bharat/indic-align).
 
