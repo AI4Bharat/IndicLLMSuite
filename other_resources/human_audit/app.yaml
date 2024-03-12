@@ -1,0 +1,9 @@
+runtime: custom
+env: flex
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 5
+  cool_down_period_sec: 120
+resources:
+  cpu: 2
+  memory_gb: 4
