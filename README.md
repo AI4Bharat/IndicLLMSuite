@@ -6,6 +6,9 @@ This repository contains the artifacts and resources for curating Pre-training a
   <a href="https://github.com/AI4Bharat/IndicLLMSuite/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green">
   </a>
+  <a href="https://arxiv.org/abs/2403.06350">
+    <img src="https://img.shields.io/badge/arXiv-2403.06350-b31b1b.svg">
+  </a>
 </p>
 
 ![indicllmsuite-1](https://github.com/AI4Bharat/IndicLLMSuite/assets/31161768/f1a25b58-52f4-4544-ba36-8ebb8e2e01d5)
@@ -16,29 +19,28 @@ IndicLLMSuite is the largest Pre-training and Instruction Fine-tuning dataset co
 
 We release the below Artifacts:
 
-- [Pre-training](#pre-training)
-  - [Sangraha](#sangraha)
-  - [Portal for URL Verification](#portal-for-url-verification)
-  - [Portal for Human Data Audit](#portal-for-human-data-audit)
-  - [List of Toxic Words](#list-of-toxic-words)
-- [Instruction Fine-Tuning](#instruction-fine-tuning)
-  - [IndicAlign](#indicalign)
-  - [Romanization Dictionary](#romanization-dictionary)
-  - [Toxic-Matrix Taxonomy](#toxic-matrix-taxonomy)
+- [Sangraha](#sangraha)
+- [IndicAlign](#indicalign)
+  - [IndicAlign-Instruct](#indicalign-instruct)
+  - [IndicAlign-Toxic](#indicalign-toxic)
 - [Data Pipelines](#data-pipelines)
   - [Setu](#setu)
   - [Setu-translate](#setu-translate)
   - [Setu-transliterate](#setu-transliterate)
+- [Other Resources](#other-resources)
+  - [Portal for URL Verification](#portal-for-url-verification)
+  - [Portal for Human Data Audit](#portal-for-human-data-audit)
+  - [List of Toxic Words](#list-of-toxic-words)
+  - [Romanization Dictionary](#romanization-dictionary)
 
 
-
-## Pre-training
-
-### Sangraha
+## Sangraha
 Sangraha is the largest high-quality, cleaned Indic language pretraining data containing 251B tokens summed up over 22 languages, extracted from curated sources, existing multilingual corpora, and large-scale translations. It has three broad components:
 - **Sangraha Verified**: Contains scraped data from "human-verified" Websites, OCR-extracted data from high-quality Indic language PDFs, transcribed data from various Indic language videos, podcasts, movies, courses, etc. For scraping the data from the Web, we use the open-source framework [Webcorpus](webcorpus_link). For OCR, we collect PDFs from various sources with Internet Archive being the most prominent one. We release pipeline to collect the Indic Language PDFs from Internet Archive [here](sangraha_download_link)
 - **Sangraha Unverified**: High-quality Indic language data extracted from existing multilingual corpora. We employ perplexity filtering using n-gram language models trained on Sangraha Verified by extending the pipeline proposed by [CCNet](https://github.com/facebookresearch/cc_net/blob/main/cc_net/perplexity.py).
-- **Sangraha Synthetic**: Wikimedia English translated to 14 Indic languages and further "romanized" from 14 languages by transliteration to English.
+- **Sangraha Synthetic**: Wikimedia English translated to 14 Indic languages and further "romanized" from 14 languages by transliteration to English. We use the [Setu-translate](#setu-translate) and [Setu-transliterate](#setu-transliterate) pipelines for translation and transliteration respectively.
+
+Sangraha can be downloaded from [Huggingface 🤗](https://huggingface.co/datasets/ai4bharat/sangraha).
 
 The list of languages in Sangraha:
 
@@ -86,16 +88,29 @@ The list of languages in Sangraha:
 </tbody>
 </table>
 
+## IndicAlign
+IndicAlign is the largest multilingual Instruction Fine-tuning dataset for Indic Languages, comprising a diverse collection of around 74.7 million prompt-response pairs. This data has been collected through four methods: aggregating existing Instruction Fine-tuning (IFT) datasets, translating high-quality English datasets to 14 Indic languages, generating synthetic data using context-grounded conversations from India-centric Wikipedia articles and establishing a crowd-sourcing platform Anudesh for prompt collection. Indic Align comprises two distinct splits: [IndicAlign-Instruct](#indicalign-insrtuct) and [IndicAlign-Toxic](#indicalign-toxic).
 
+IndicAlign can be downloaded from [Huggingface 🤗](https://huggingface.co/datasets/ai4bharat/indic-align).
 
-### Portal for URL Verification
-For curating Sangraha verified, we ensure that all the websites to be scraped are thoroughly verified by humans for quality. Websites containing toxic, adult, and poorly machine-translated content are discarded. We released the portal created for this human verification process. Steps to run this portal are available [here](#sangraha)
+### IndicAlign-Instruct
+The IndicAlign-Instruct segment encompasses datasets that can be used to imbibe instruction-following ability in Large Language Models. It comprises of the below datasets:
+- **IndicShareLlama**- Collection of first user prompts from [ShareGPT](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) along with responses from [Llama2-70B-Chat](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf) model.
+- **Dolly-T**- Translated and Romanised version of [Dolly-15K](https://huggingface.co/datasets/databricks/databricks-dolly-15k)
+- **OpenAssistant-T**- Translated and Romanised version of [OpenAssistant v1](https://huggingface.co/datasets/OpenAssistant/oasst1)
+- **WikiHow** - Translated and Romanised version of [WikiHow](https://huggingface.co/datasets/ai4bharat/indic-instruct-data-v0.1)
+- **IndoWordNet**- Novel dataset created by converting the entried of [IndoWordNet](https://pypi.org/project/pyiwn/) to Instruction-Response pairs in 18 Indic languages.
+- **Anudesh**- A crowd-sourced collection of prompts accompanied by responses generated from the Llama2-70B-Chat model.
+- **Wiki-Conv**- Collection of short, to-the-point conversations on Wikipedia passages and Wiki-Infoboxes created using Llama2-70B-Chat model.
+- **Wiki-Chat**- Collection of long, open conversations on Wikipedia passages, created by simulating conversations between a User and an Assistant models.
 
-### Portal for Human Data Audit
-The data curated in Sangraha verified from both Web and PDFs is cleaned using the Setu data cleaning pipeline. We introduce another round of human audit after cleaning the data to know the efficacy of the Setu Pipeline. We released the portal created for the human audit of both Web and PDF data. Steps to run this portal are available [here](#sangraha)
+### IndicAlign-Toxic
+The IndicAlign-toxic segment encompasses datasets to align chat models to handle toxic prompts responsibly. It comprises of the below datasets:
+- **HHRLHF-T**- Collection of "toxic" prompts from [Anthropic HH-RLHF](https://huggingface.co/datasets/Anthropic/hh-rlhf) with refusals from Llama2-70B-Chat model.
+- **Toxic-Matrix**- A novel "synthetic" dataset with toxic prompts generated using [Mistral-7B Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1) and non-toxic responses/refusals using Llama2-70B-Chat model.
 
-### List of Toxic Words
-We release the list of NSFW (Not Safe for Work) and toxic words across 17 Indic languages to remove toxic content from the scraped data. The language-specific lists can be downloaded [here](https://github.com/AI4Bharat/setu/tree/main/setu/data/filter_data/nsfw)
+For more details on Sangraha and IndicAlign, we direct the users towards our technical paper on [Arxiv](https://arxiv.org/abs/2403.06350). 
+
 
 ## Data Pipelines
 We release the three data pipelines used for the curation of Sangraha. Setu (for data cleaning), Setu-translate (for large-scale translations), and Setu-transliterate (for large-scale transliterations).
@@ -104,4 +119,26 @@ We release the three data pipelines used for the curation of Sangraha. Setu (for
 Setu is a comprehensive pipeline designed to clean, filter, and deduplicate diverse data sources, including Web, PDF, and Speech data. Built on Apache Spark, Setu encompasses four key stages: document preparation, document cleaning and analysis, flagging and filtering, and deduplication. Steps to setup and run Setu are available [here](https://github.com/AI4Bharat/setu/blob/main/README.md)
 
 ### Setu-translate
-We release Setu-Translate, a pipeline for performing large-scale "structure-preserving" translations for both Pre-training and Conversation 
+We release Setu-Translate, a pipeline for performing large-scale "structure-preserving" translations for both Pre-training and Conversation data. It is built on top of IndicTrans2 ([Gala et al., 2023](https://openreview.net/forum?id=vfT4YuzAYA)) and has three key stages: Templating, Inference, and Replace. Detailed instructions to setup and run Setu-translate are available [here](https://github.com/AI4Bharat/setu-translate/blob/master/README.md).
+
+### Setu-transliterate
+We also release Setu-transliterate, a pipeline for performing large-scale "structure-preserving" transliterations for Pre-training and Conversation data. Inherently, it uses IndicXlit ([Madhani et al., 2023](https://arxiv.org/abs/2205.03018)) but can consume any custom word mappings. Instructions for setting up and running Setu-transliterate are available [here](https://github.com/AI4Bharat/setu-translate/blob/master/README.md).
+
+## Other Resources
+Along with the main data and code artifacts, we release the other supplementary resources used at various stages in the curation of Sangraha and IndicAlign. We release these resources to foster open research.
+
+### Portal for URL Verification
+For curating Sangraha verified, we ensure that all the websites to be scraped are thoroughly verified by humans for quality. Websites containing toxic, adult, and poorly machine-translated content are discarded. We release the portal created for this human verification process. Steps to run this portal are available [here](#sangraha).
+
+### Portal for Human Data Audit
+The data curated in Sangraha verified from both Web and PDFs is cleaned using the Setu data cleaning pipeline. We introduce another round of human audit after cleaning the data to verify the efficacy of the Setu Pipeline. We release the portal created for the human audit of both Web and PDF data. Steps to run this portal are available [here](#sangraha).
+
+### List of Toxic Words
+We release the list of NSFW (Not Safe for Work) and toxic words across 17 Indic languages used to remove toxic content from the scraped data. The language-specific lists can be downloaded [here](https://github.com/AI4Bharat/setu/tree/main/setu/data/filter_data/nsfw).
+
+### Romanization Dictionary
+For performing large-scale transliterations, we first collect all the unique words present across Sangraha and IndicAlign and get their romanized versions using IndicXlit ([Madhani et al., 2023](https://arxiv.org/abs/2205.03018)). As a result, we create a massive dictionary of (word-romanized_Word) mapping for 14 Indic languages. We release the language-wise dictionary for direct future consumption. [COMING SOON!!!]
+
+
+
+
