@@ -1,0 +1,3 @@
+[submodule "webcorpus"]
+	path = webcorpus
+	url = https://github.com/AI4Bharat/webcorpus.git
