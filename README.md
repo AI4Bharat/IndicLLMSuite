@@ -13,7 +13,7 @@ This repository contains the artifacts and resources for curating Pre-training a
 
 ![indicllmsuite-1](https://github.com/AI4Bharat/IndicLLMSuite/assets/31161768/f1a25b58-52f4-4544-ba36-8ebb8e2e01d5)
 
-[📜 Paper]([https://arxiv.org](https://arxiv.org/abs/2403.06350)) | [🌐 Blog](https://ai4bharat.iitm.ac.in) | [🤗 Data](https://huggingface.co/collections/ai4bharat/indicllmsuite-65ee7d225c337fcfa0991707)
+[📜 Paper](https://arxiv.org/abs/2403.06350) | [🌐 Blog](https://ai4bharat.iitm.ac.in) | [🤗 Data](https://huggingface.co/collections/ai4bharat/indicllmsuite-65ee7d225c337fcfa0991707)
 
 IndicLLMSuite is the largest Pre-training and Instruction Fine-tuning dataset collection across 22 Indic languages. We open-source our pre-training dataset "Sangraha," the Instruction Fine-tuning dataset "IndicAlign-Instruct," and the Toxic alignment dataset "IndicAlign-Toxic." We also open-source all the code and other resources used for curating these datasets, including "Setu," a comprehensive data cleaning, filtering, and deduplication pipeline for Indic languages. We hope that this will advance the development of LLMs for Indian Languages.
 
