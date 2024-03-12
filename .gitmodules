@@ -7,3 +7,6 @@
 [submodule "setu-translate"]
 	path = setu-translate
 	url = https://github.com/AI4Bharat/setu-translate.git
+[submodule "sangraha-internet-archive-download"]
+	path = sangraha-internet-archive-download
+	url = git@github.com:AI4Bharat/sangraha-internet-archive-download.git
