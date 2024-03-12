@@ -1,5 +1,7 @@
 # Setu Audit ⚒️: Portal for Data Audit
 
+Credits: [@Sshubam](https://github.com/Sshubam)
+
 This contains the code for the setu dashboard. The dashboard is a [Streamlit](https://streamlit.io/) based web application that allows users to audit cleaned Web and PDF extracted documents.
 
 ![Setu-audit](https://github.com/AI4Bharat/IndicLLMSuite/assets/31161768/f457aec8-01a2-41a1-bff0-fc41922bccdb)
