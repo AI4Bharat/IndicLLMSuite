@@ -140,5 +140,17 @@ We release the list of NSFW (Not Safe for Work) and toxic words across 17 Indic 
 For performing large-scale transliterations, we first collect all the unique words present across Sangraha and IndicAlign and get their romanized versions using IndicXlit ([Madhani et al., 2023](https://arxiv.org/abs/2205.03018)). As a result, we create a massive dictionary of (word-romanized_Word) mapping for 14 Indic languages. We release the language-wise dictionary for direct future consumption. [COMING SOON!!!]
 
 
+## Cite our Work
+
+```
+@misc{khan2024indicllmsuite,
+      title={IndicLLMSuite: A Blueprint for Creating Pre-training and Fine-Tuning Datasets for Indian Languages}, 
+      author={Mohammed Safi Ur Rahman Khan and Priyam Mehta and Ananth Sankar and Umashankar Kumaravelan and Sumanth Doddapaneni and Suriyaprasaad G and Varun Balan G and Sparsh Jain and Anoop Kunchukuttan and Pratyush Kumar and Raj Dabre and Mitesh M. Khapra},
+      year={2024},
+      eprint={2403.06350},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
 
 
