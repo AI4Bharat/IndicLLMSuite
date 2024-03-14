@@ -1,12 +1,12 @@
 [submodule "webcorpus"]
 	path = webcorpus
 	url = https://github.com/AI4Bharat/webcorpus.git
-[submodule "setu"]
-	path = setu
-	url = https://github.com/AI4Bharat/setu.git
 [submodule "sangraha-internet-archive-download"]
 	path = sangraha-internet-archive-download
 	url = git@github.com:AI4Bharat/sangraha-internet-archive-download.git
 [submodule "setu-translate"]
 	path = setu-translate
 	url = https://github.com/AI4Bharat/setu-translate.git
+[submodule "setu"]
+	path = setu
+	url = https://github.com/AI4Bharat/setu.git
