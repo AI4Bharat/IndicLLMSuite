@@ -1,13 +1,15 @@
 # IndicLLMSuite: A Blueprint for Creating Pre-training and Fine-Tuning Datasets for Indian Languages
 
+🏆 ACL 2024 Outstanding Paper Award 🏆
+
 This repository contains the artifacts and resources for curating Pre-training and Fine-tuning datasets for Indic Languages.
 
 <p align="left">
   <a href="https://github.com/AI4Bharat/IndicLLMSuite/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-green">
   </a>
-  <a href="https://arxiv.org/abs/2403.06350">
-    <img src="https://img.shields.io/badge/arXiv-2403.06350-b31b1b.svg">
+  <a href="https://aclanthology.org/2024.acl-long.843/">
+    <img src="https://img.shields.io/badge/ACL%20-2024-blue">
   </a>
 </p>
 
